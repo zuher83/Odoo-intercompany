@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_purchase_intercompany_wizard_view" model="ir.ui.view">
+            <field name="name">sale.purchase.intercompany.wizard.form</field>
+            <field name="model">sale.purchase.intercompany.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Generate New Sale or Purchase">
+                    <group>
+                        <p>
+                            You will generate a new intercompany order.
+                        </p>
+                    </group>
+                    <group>
+                        <field name="type" readonly="1"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="inter_company_id" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button string="Validate" name="launchprocess" type="object" default_focus="1"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sale_purchase_intercompany_wizard" model="ir.actions.act_window">
+            <field name="name">Intercompany Auto Sale Purchase Generate</field>
+            <field name="res_model">sale.purchase.intercompany.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sale_purchase_intercompany_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

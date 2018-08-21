@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_order_intercompany_form" model="ir.ui.view">
+            <field name="name">sale.order.intercompany.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_done']" position="after">
+                    <button name="launch_intercompany_purchase" string="Create Purchase Intercompany" type="object"
+                            class="btn-primary"
+                            attrs="{'invisible': ['|','|', ('auto_purchase_id', '!=', False), ('intercompany', '!=', True),('auto_generate_purchase', '=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="intercompany" attrs="{'invisible': [('intercompany', '!=', True)]}"/>
+                    <field name="auto_generate_purchase" attrs="{'invisible': [('intercompany', '!=', True)]}"/>
+                    <field name="auto_purchase_id" attrs="{'invisible': [('intercompany', '!=', True)]}"/>
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

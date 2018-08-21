@@ -1,0 +1,168 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_purchase_intercompany
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-21 11:58+0000\n"
+"PO-Revision-Date: 2018-08-21 11:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_order_auto_purchase_id
+msgid "Auto Purchase Order"
+msgstr "Ordre Achat Auto"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_purchase_order_auto_sale_id
+msgid "Auto Sale Order"
+msgstr "Ordre Vente Auto"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_order_auto_generate_purchase
+msgid "Auto generated purchase"
+msgstr "Achat généré automatiquement"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_purchase_order_auto_generate_sale
+msgid "Auto generated sale"
+msgstr "Vente généré automatiquement"
+
+#. module: sale_purchase_intercompany
+#: model:ir.ui.view,arch_db:sale_purchase_intercompany.sale_purchase_intercompany_wizard_view
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_company_id
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_inter_company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: sale_purchase_intercompany
+#: model:ir.ui.view,arch_db:sale_purchase_intercompany.view_sale_order_intercompany_form
+msgid "Create Purchase Intercompany"
+msgstr "Créer Achat Inter société"
+
+#. module: sale_purchase_intercompany
+#: code:addons/sale_purchase_intercompany/models/sale.py:46
+#, python-format
+msgid "Create Purchase order"
+msgstr "Créer commande d'achat"
+
+#. module: sale_purchase_intercompany
+#: model:ir.ui.view,arch_db:sale_purchase_intercompany.view_purchase_order_intercompany_form
+msgid "Create Sale Intercompany"
+msgstr "Créer Vente Inter société"
+
+#. module: sale_purchase_intercompany
+#: code:addons/sale_purchase_intercompany/models/purchase.py:38
+#, python-format
+msgid "Create Sale order"
+msgstr "Créer commande de vente"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: sale_purchase_intercompany
+#: model:ir.ui.view,arch_db:sale_purchase_intercompany.sale_purchase_intercompany_wizard_view
+msgid "Generate New Sale or Purchase"
+msgstr "Créer un bon de commande de vente ou d'achat"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_purchase_order_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_order_intercompany
+msgid "Intercompany"
+msgstr "Inter Société"
+
+#. module: sale_purchase_intercompany
+#: model:ir.actions.act_window,name:sale_purchase_intercompany.action_sale_purchase_intercompany_wizard
+msgid "Intercompany Auto Sale Purchase Generate"
+msgstr "Générer une commande de vente ou d'achat inter société"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard___last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Mis à jour par"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_write_date
+msgid "Last Updated on"
+msgstr "Mis à jour le"
+
+#. module: sale_purchase_intercompany
+#: selection:sale.purchase.intercompany.wizard,type:0
+msgid "Purchase"
+msgstr "Achat"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model,name:sale_purchase_intercompany.model_purchase_order
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: sale_purchase_intercompany
+#: selection:sale.purchase.intercompany.wizard,type:0
+msgid "Sale"
+msgstr "Vente"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model,name:sale_purchase_intercompany.model_sale_purchase_intercompany_wizard
+msgid "Sale and purchase intercompany wizard"
+msgstr "Générer un bon de commande de vente ou d'achat"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model,name:sale_purchase_intercompany.model_sale_order
+msgid "Sales"
+msgstr "Ventes"
+
+#. module: sale_purchase_intercompany
+#: code:addons/sale_purchase_intercompany/wizard/launch_sale_purchase_wizard.py:33
+#: code:addons/sale_purchase_intercompany/wizard/launch_sale_purchase_wizard.py:79
+#, python-format
+msgid "This order has already been processed!"
+msgstr "Ce bon de commande a déjà fait été traité!"
+
+#. module: sale_purchase_intercompany
+#: model:ir.model.fields,field_description:sale_purchase_intercompany.field_sale_purchase_intercompany_wizard_type
+msgid "Type"
+msgstr "Type"
+
+#. module: sale_purchase_intercompany
+#: model:ir.ui.view,arch_db:sale_purchase_intercompany.sale_purchase_intercompany_wizard_view
+msgid "Validate"
+msgstr "Valider"
+
+#. module: sale_purchase_intercompany
+#: model:ir.ui.view,arch_db:sale_purchase_intercompany.sale_purchase_intercompany_wizard_view
+msgid "You will generate a new intercompany order."
+msgstr "Vous allez générer une nouvelle commande inter société."
+
