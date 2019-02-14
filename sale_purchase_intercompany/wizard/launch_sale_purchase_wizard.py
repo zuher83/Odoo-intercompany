@@ -18,6 +18,8 @@ class SalePourchaseWizard(models.Model):
                                                                           ('External', 'External'),
                                                                           ], required=True,
                                       default='internal')
+    add_margin = fields.Boolean(string="Add Margin",  )
+    margin_percent = fields.Float(string="Margin Percent",  required=False, )
 
     @api.multi
     def launchprocess(self):
@@ -128,8 +130,12 @@ class SalePourchaseWizard(models.Model):
 
             for l in o.order_line:
                 line = self._prepare_sale_line_data(so, l)
+                if self.add_margin is True and self.margin_percent > 0.0:
+                    cur_price = line['price_unit']*(1+self.margin_percent/100)
+                    line['price_unit'] = cur_price
                 so_lines = self.env['sale.order.line'].create(line)
-                so_lines.update_pricelist_lines_new_prices()
+                if self.add_margin is not True:
+                    so_lines.update_pricelist_lines_new_prices()
 
             o.write({'auto_generate_sale': True, 'auto_sale_id': so.id})
 
