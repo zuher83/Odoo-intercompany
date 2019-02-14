@@ -9,7 +9,7 @@
                 <xpath expr="//button[@name='action_done']" position="after">
                     <button name="launch_intercompany_purchase" string="Create Purchase Intercompany" type="object"
                             class="btn-primary"
-                            attrs="{'invisible': ['|','|', ('auto_purchase_id', '!=', False), ('intercompany', '!=', True),('auto_generate_purchase', '=', True)]}"/>
+                            attrs="{'invisible': ['|', ('intercompany', '!=', True),('auto_generate_purchase', '=', True)]}"/>
                 </xpath>
                 <xpath expr="//field[@name='company_id']" position="after">
                     <field name="intercompany" attrs="{'invisible': [('intercompany', '!=', True)]}"/>

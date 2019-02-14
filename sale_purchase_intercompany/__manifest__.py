@@ -17,7 +17,8 @@ Company B generates a sales order to company A. On company A the purchase order 
         'account',
         'sale',
         'purchase',
-        'stock'
+        'stock',
+        'pricelist_extend'
     ],
     'data': [
         'views/sale_views.xml',

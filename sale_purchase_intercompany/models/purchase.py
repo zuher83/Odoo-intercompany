@@ -26,13 +26,10 @@ class PurchaseOrder(models.Model):
     @api.multi
     def launch_intercompany_sale(self):
         for o in self:
-            if o.intercompany is True:
-                seller_company = self.env['res.company'].search([('partner_id', '=', o.partner_id.id)])
-                ctx = {
-                    'default_inter_company_id': seller_company[0].id,
-                    'default_type': 'purchase',
-                    'default_company_id': o.company_id.id
-                }
+            ctx = {
+                'default_type': 'purchase',
+                'default_company_id': o.company_id.id
+            }
 
             return {
                 'name': _('Create Sale order'),

@@ -8,12 +8,12 @@
             <field name="arch" type="xml">
                 <xpath expr="//button[@name='button_done']" position="after">
                     <button name="launch_intercompany_sale" string="Create Sale Intercompany" type="object" class="btn-primary"
-                            attrs="{'invisible': ['|','|', ('auto_sale_id', '!=', False), ('intercompany', '!=', True),('auto_generate_sale', '=', True)]}"/>
+                            attrs="{'invisible': ['|','|', ('auto_sale_id', '!=', False), ('auto_generate_sale', '=', True)]}"/>
                 </xpath>
                 <xpath expr="//field[@name='incoterm_id']" position="after">
-                    <field name="intercompany" attrs="{'invisible': [('intercompany', '!=', True)]}"/>
-                    <field name="auto_generate_sale" attrs="{'invisible': [('intercompany', '!=', True)]}"/>
-                    <field name="auto_sale_id" attrs="{'invisible': [('intercompany', '!=', True)]}"/>
+                    <field name="intercompany"/>
+                    <field name="auto_generate_sale"/>
+                    <field name="auto_sale_id" />
                 </xpath>
             </field>
         </record>
