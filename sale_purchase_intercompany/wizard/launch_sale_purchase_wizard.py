@@ -68,12 +68,12 @@ class SalePourchaseWizard(models.Model):
         return {'type': 'ir.actions.act_window_close'}
 
     def _prepare_sale_line_data(self, so, line):
-        taxes = line.sudo().with_context(force_company=self.inter_company_id.id).product_id.taxes_id
+        taxes = line.product_id.taxes_id
         fpos = so.fiscal_position_id
         taxes_id = fpos.map_tax(taxes) if fpos else taxes
 
         if taxes_id:
-            taxes_id = taxes_id.filtered(lambda x: x.company_id.id == self.inter_company_id.id)
+            taxes_id = taxes_id.filtered(lambda x: x.company_id.id == self.company_id.id)
 
         return {
             'product_id': line.product_id.id,
@@ -116,7 +116,7 @@ class SalePourchaseWizard(models.Model):
             sale_data = {
                 'date_order': o.date_order,
                 'client_order_ref': o.name,
-                # 'company_id': self.inter_company_id.id,
+                'warehouse_id': o.picking_type_id.warehouse_id.id,
                 'auto_purchase_id': o.id
 
                 }
@@ -133,6 +133,9 @@ class SalePourchaseWizard(models.Model):
                 if self.add_margin is True and self.margin_percent > 0.0:
                     cur_price = line['price_unit']*(1+self.margin_percent/100)
                     line['price_unit'] = cur_price
+                    # line['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(
+                    #     cur_price, l.taxes_id, self.company_id)
+
                 so_lines = self.env['sale.order.line'].create(line)
                 if self.add_margin is not True:
                     so_lines.update_pricelist_lines_new_prices()

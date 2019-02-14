@@ -28,7 +28,7 @@ class PurchaseOrder(models.Model):
         for o in self:
             ctx = {
                 'default_type': 'purchase',
-                'default_company_id': o.company_id.id
+                # 'default_company_id': o.company_id.id
             }
 
             return {
