@@ -133,8 +133,6 @@ class SalePourchaseWizard(models.Model):
                 if self.add_margin is True and self.margin_percent > 0.0:
                     cur_price = line['price_unit']*(1+self.margin_percent/100)
                     line['price_unit'] = cur_price
-                    # line['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(
-                    #     cur_price, l.taxes_id, self.company_id)
 
                 so_lines = self.env['sale.order.line'].create(line)
                 if self.add_margin is not True:

@@ -17,7 +17,7 @@
                         <field name="operation_type"/>
                         <field name="inter_company_id" attrs="{'invisible': [('operation_type','!=', 'internal')]}"/>
                         <field name="partner_id" attrs="{'invisible': [('operation_type','!=', 'external')]}"/>
-                        <field name="add_margin"/>
+                        <field name="add_margin" attrs="{'invisible': [('type','!=', 'purchase')]}"/>
                         <field name="margin_percent" attrs="{'invisible': [('add_margin','!=', True)]}"/>
                     
                     
