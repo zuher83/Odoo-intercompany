@@ -2,7 +2,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
-
 class SalePourchaseWizard(models.Model):
     _name = 'sale.purchase.intercompany.wizard'
     _description = 'Sale and purchase intercompany wizard'
@@ -20,6 +19,8 @@ class SalePourchaseWizard(models.Model):
                                       default='internal')
     add_margin = fields.Boolean(string="Add Margin",  )
     margin_percent = fields.Float(string="Margin Percent",  required=False, )
+    warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse')
+
 
     @api.multi
     def launchprocess(self):
@@ -27,7 +28,8 @@ class SalePourchaseWizard(models.Model):
             if s.type == 'sale':
                 s.sudo().launch_from_sale_process(order=self._context.get('active_id', []))
             if s.type == 'purchase':
-                s.launch_from_purchase_process(order=self._context.get('active_id', []))
+                so = s.launch_from_purchase_process(order=self._context.get('active_id', []))
+                return self.action_view_sale(so)
 
     @api.multi
     def launch_from_sale_process(self, order):
@@ -116,7 +118,7 @@ class SalePourchaseWizard(models.Model):
             sale_data = {
                 'date_order': o.date_order,
                 'client_order_ref': o.name,
-                'warehouse_id': o.picking_type_id.warehouse_id.id,
+                'warehouse_id': self.warehouse_id.id,
                 'auto_purchase_id': o.id
 
                 }
@@ -140,20 +142,18 @@ class SalePourchaseWizard(models.Model):
 
             o.write({'auto_generate_sale': True, 'auto_sale_id': so.id})
 
-        return self.action_view_sale(so.id)
+        return so.id
 
     @api.multi
     def action_view_sale(self, sale):
         self.ensure_one()
+        res = self.env.ref('sale.view_order_form')
 
-        action = self.env.ref('sale.action_quotations')
         return {
-            'name': action.name,
-            'help': action.help,
-            'type': action.type,
-            'view_type': action.view_type,
-            'view_mode': action.view_mode,
-            'target': action.target,
-            'res_model': action.res_model,
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'sale.order',
+            'view_id': res.id,
+            'type': 'ir.actions.act_window',
             'res_id': sale,
         }

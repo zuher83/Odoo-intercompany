@@ -15,6 +15,7 @@
                         <field name="type" readonly="1"/>
                         <field name="company_id" invisible="1"/>
                         <field name="operation_type"/>
+                        <field name="warehouse_id"/>
                         <field name="inter_company_id" attrs="{'invisible': [('operation_type','!=', 'internal')]}"/>
                         <field name="partner_id" attrs="{'invisible': [('operation_type','!=', 'external')]}"/>
                         <field name="add_margin" attrs="{'invisible': [('type','!=', 'purchase')]}"/>
