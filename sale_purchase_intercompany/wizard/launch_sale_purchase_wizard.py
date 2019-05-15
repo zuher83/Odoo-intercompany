@@ -42,7 +42,7 @@ class SalePourchaseWizard(models.Model):
             purchase_data = {
                 'date_order': o.date_order,
                 'partner_ref': o.name,
-                'partner_id': self.inter_company_id.partner_id.id,
+                'partner_id': self.company_id.partner_id.id,
                 'date_planned': o.commitment_date,
                 'company_id': self.inter_company_id.id,
                 'auto_sale_id': o.id,
